@@ -1,0 +1,28 @@
+<div class="container">
+  <form #frm="ngForm" class="form-container" (ngSubmit)="createCustomer()">
+    <h1 class="title">Criar usuário</h1>
+    <div class="input-container">
+      <label for="name">Nome</label>
+      <input name="name" type="text" [(ngModel)]="customerName">
+    </div>
+    <div class="input-container">
+      <label for="email">E-mail</label>
+      <input name="email" type="text" [(ngModel)]="customerEmail">
+    </div>
+    <div class="input-container">
+      <label for="phone">Fone</label>
+      <p-inputmask mask="(99) 99999-9999" placeholder="(99) 99999-9999" name="phone" type="text" [(ngModel)]="customerPhone"/>
+    </div>
+    <div class="input-container">
+      <label for="document">Documento</label>
+      <p-inputmask mask="999.999.999-99" placeholder="000.000.000-00"  name="document" type="text" [(ngModel)]="customerDocument"/>
+    </div>
+    @if(isLoading){
+      <div class="loading">
+        <p-progressbar mode="indeterminate" [style]="{'height': '6px'}" />
+      </div>
+    }@else{
+      <button type="submit" class="button">Criar</button>
+    }
+  </form>
+</div>
